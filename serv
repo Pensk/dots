@@ -1,0 +1,4 @@
+systemctl --user start ssh-agent.service
+systemctl --user start dunst.service
+systemctl --user enable ssh-agent.service
+systemctl --user enable dunst.service
