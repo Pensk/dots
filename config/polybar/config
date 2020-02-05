@@ -26,9 +26,10 @@ padding-left = 1
 padding-right = 1
 module-margin = 0
 
-modules-left = i3 
+separator = " | "
+modules-left = i3 title
 modules-center = date
-modules-right = cpu memory
+modules-right = cpu memory battery
 
 [module/i3]
 strip-wsnumbers = true
@@ -72,7 +73,36 @@ date = %A, %d %B %I:%M %p
 
 [module/title]
 type = internal/xwindow
-# format-background = #f00
-format-foreground = #f0c674
+format-background = #18a01b
+format-foreground = #00f
 format-padding = 1
-label-maxlen = 50
+label-maxlen = 75
+
+
+[module/cpu]
+type = internal/cpu
+label = CPU %percentage%%
+
+[module/memory]
+type = internal/memory
+label = RAM %gb_used%/%gb_total%
+
+[module/battery]
+type = internal/battery
+format-charging = <label-charging> <animation-charging>
+format-discharging = <label-discharging> <animation-discharging>
+label-charging = %percentage%%
+label-discharging = %percentage%%
+
+label-full = 100%
+
+animation-charging-0 = [ ]
+animation-charging-1 = [+]
+
+
+animation-charging-framerate = 1000
+
+animation-discharging-0 = [ ]
+animation-discharging-1 = [-]
+
+animation-discharging-framerate = 1000
