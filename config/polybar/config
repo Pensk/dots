@@ -1,6 +1,6 @@
 [bar/bar]
 
-font-0 = "Overpass Mono:pixelsize=10;2.25"
+font-0 = "Hack:pixelsize=14;2.25"
 
 monitor = "eDP1"
 
