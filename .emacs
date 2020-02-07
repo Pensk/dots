@@ -1,3 +1,5 @@
+(define-key key-translation-map "\C-t" "\C-x")
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -28,7 +30,13 @@
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
+(require 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
 (setq js-indent-level 2)
+(setq css-indent-offset 2)
 (setq-default indent-tabs-mode nil)
 
 (setq sml/theme 'dark)
