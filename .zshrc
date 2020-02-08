@@ -136,3 +136,6 @@ alias gc='git commit'
 alias pj='cd ~/proj; cd'
 alias pd='cd ~/proj/pd; cd'
 alias lb='cd ~/proj/labot; cd'
+
+setxkbmap -layout us,jp,dvorak
+setxkbmap -option 'grp:ctrl_alt_shift_toggle'
