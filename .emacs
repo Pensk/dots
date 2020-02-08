@@ -1,4 +1,4 @@
-(define-key key-translation-map "\C-t" "\C-x")
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -38,6 +38,8 @@
 (setq js-indent-level 2)
 (setq css-indent-offset 2)
 (setq-default indent-tabs-mode nil)
+
+(define-key key-translation-map "\C-u" "\C-x")
 
 (setq sml/theme 'dark)
 (sml/setup)
