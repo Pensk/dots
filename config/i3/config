@@ -2,15 +2,15 @@
 set $mod Mod4
 
 # Set display resolution
-exec_always --no-startup-id xrandr --output eDP1 --mode 2560x1600 --rate 59.95
+exec_always --no-startup-id xrandr --output DP-0 --mode 2560x1600 --rate 59.95
 
-font pango:Overpass Regular 14
+font hack 14.0
 
 # Press mod key to be able to resize floating windows
 floating_modifier $mod
 
 # Open new terminal
-bindsym $mod+Return exec konsole
+bindsym $mod+Return exec kitty
 
 #Close window
 bindsym $mod+Shift+q kill
@@ -153,11 +153,11 @@ client.background       #ffffff
 exec_always --no-startup-id xrdb ~/.Xresources
 
 # Apply the last colorscheme generated without changing the background by using -n 
-exec_always --no-startup-id wal -R -n
+exec_always --no-startup-id wal -R
 
 # Apply a background different than the one used by wal
 # If this isn't needed, remove it and remove -n flag from the above command
-exec_always --no-startup-id feh --bg-fill ~/Pictures/Wal/bg1.jpg
+#exec_always --no-startup-id feh --bg-fill ~/Pictures/Wal/bg1.jpg
 
 # Execute polybar on launch. Script kills current ones on i3 refresh, otherwise they duplicate
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -173,5 +173,11 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-gaps inner 20
-gaps outer 10
+bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
+
+gaps inner 80
+gaps outer 20
+
+border_radius 20
+
+exec --no-startup-id picom -b
