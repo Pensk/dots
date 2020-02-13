@@ -2,7 +2,7 @@
 
 font-0 = "Hack:pixelsize=14;2.25"
 
-monitor = "eDP1"
+monitor = "DP-0"
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -10,7 +10,7 @@ scroll-down = i3wm-wsprev
 fixed-center = true
 
 width = 100%
-height = 30
+height = 50
 
 background = #1d1f21
 foreground = #707880
@@ -73,8 +73,8 @@ date = %A, %d %B %I:%M %p
 
 [module/title]
 type = internal/xwindow
-format-background = #18a01b
-format-foreground = #00f
+format-background = #1f1f2f
+format-foreground = #f0f
 format-padding = 1
 label-maxlen = 75
 
