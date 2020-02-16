@@ -4,7 +4,7 @@ set $mod Mod4
 # Set display resolution
 exec_always --no-startup-id xrandr --output DP-0 --mode 2560x1600 --rate 59.95
 
-font hack 14.0
+font hack
 
 # Press mod key to be able to resize floating windows
 floating_modifier $mod
@@ -16,7 +16,9 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # Open dmenu 
-bindsym $mod+d exec dmenu_run -fn 'hack:pixelsize=15' -l 3 -nf '#707880' -sf '#cc6666' -nb '#1d1f21' -sb '#1d1f21'
+bindsym $mod+d exec dmenu_run -fn 'hack:pixelsize=11' -l 3 -nf '#707880' -sf '#cc6666' -nb '#1d1f21' -sb '#1d1f21'
+
+for_window [class="^.*"] border pixel 0
 
 # Change focus
 bindsym $mod+j focus left
@@ -136,9 +138,11 @@ new_window pixel 2
 
 hide_edge_borders vertical
 
+focus_follows_mouse no
+
 # Color variables
-set $unfocused_border #1D1F21
-set $focused_border #CC6666
+#set $unfocused_border #1D1F21
+#set $focused_border #CC6666
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #ffffff #ffffff #ffffff #ffffff   $focused_border
@@ -175,9 +179,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
 
-gaps inner 80
-gaps outer 20
+gaps inner 30
+gaps outer 35
 
-border_radius 20
-
-exec --no-startup-id picom -b
+exec --no-startup-id picom -b -c --config ~/.config/picom.conf
