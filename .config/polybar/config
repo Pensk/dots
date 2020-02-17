@@ -3,7 +3,7 @@
 ; If unspecified, the application will pick the first one it finds.
 ; $ polybar -m | cut -d ':' -f 1
 ; $ xrandr -q | grep " connected" | cut -d ' ' -f1
-monitor = "DP-0"
+monitor = "eDP-1"
 ; font-0 = "Hack:pixelsize=14;2.25"
 
 ; Use the specified monitor as a fallback if the main one is not found.
@@ -95,8 +95,8 @@ module-margin = 1
 ;   font-2 = Termsynu:size=8;-1
 ;   font-3 = FontAwesome:size=10
 ; See the Fonts wiki page for more details
-font-0 = Inconsolata:bold:size=10;1.5
-font-1 = FontAwesome5Free:style=Solid:size=10;2
+font-0 = Inconsolata:bold:size=14;1.5
+font-1 = FontAwesome5Free:style=Solid:size=14;2
 
 ; Modules are added to one of the available blocks
 ;   modules-left = cpu ram
@@ -104,7 +104,7 @@ font-1 = FontAwesome5Free:style=Solid:size=10;2
 ;   modules-right = ipc clock
 modules-left = i3
 modules-center =
-modules-right = wireless-network sep memory sep cpu sep date
+modules-right = wireless-network sep memory sep cpu sep battery sep date
 
 ; The separator will be inserted between the output of each module
 separator =
@@ -196,7 +196,7 @@ type = internal/i3
 ; on different bars
 ;
 ; Default: false
-pin-workspaces = true
+pin-workspaces = false
 
 ; This will split the workspace name on ':'
 ; Default: false
@@ -237,7 +237,7 @@ label-unfocused-foreground = #ffffff
 label-focused = %index%
 label-focused-foreground = #ffffff
 label-focused-background = #465457
-label-focused-underline = #fba922
+;label-focused-underline = #fba922
 label-focused-padding = 2
 
 [module/date]
@@ -264,7 +264,7 @@ label-foreground = #ffffff
 
 [module/wireless-network]
 type = internal/network
-interface = wlp8s0
+interface = wlp2s0
 
 label-connected = %essid%
 format-connected = <ramp-signal>
@@ -329,7 +329,7 @@ format = <label>
 ;   %gb_swap_free%
 ;   %gb_swap_used%
 
-label =  %gb_used%
+label =  %gb_used% | 0.%percentage_used%
 
 label-foreground = #f92672
 
@@ -370,6 +370,26 @@ format = <label>
 label =  %temperature-c%
 
 label-foreground = #fdc21f
+
+[module/battery]
+type = internal/battery
+format-charging = <label-charging> <animation-charging>
+format-discharging = <label-discharging> <animation-discharging>
+label-charging = 🔋 %percentage%%
+label-discharging = 🔋 %percentage%%
+
+label-full = 100%
+
+animation-charging-0 = [ ]
+animation-charging-1 = [+]
+
+
+animation-charging-framerate = 1000
+
+animation-discharging-0 = [ ]
+animation-discharging-1 = [-]
+
+animation-discharging-framerate = 1000
 
 [module/decor-glyph]
 type = custom/text
