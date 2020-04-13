@@ -11,6 +11,8 @@ alias pj='cd ~/proj; cd'
 alias pd='cd ~/proj/pd; cd'
 alias lb='cd ~/proj/labot; cd'
 
+eval (ssh-agent -c)
+
 if status is-login
     if test -z "$DISPLAY" -a $XDG_VTNR = 1
         exec tdm
