@@ -2,7 +2,7 @@
 set $mod Mod4
 
 # Set display resolution
-exec_always --no-startup-id xrandr --output DP-0 --mode 2560x1600 --rate 59.95
+exec_always --no-startup-id xrandr --output DP-0 --mode 3840x2160 --rate 59.95
 
 font hack
 
@@ -134,18 +134,18 @@ bar {
         mode invisible
 }
 
-new_window pixel 2
+new_window pixel 3
 
 hide_edge_borders vertical
 
 focus_follows_mouse no
 
 # Color variables
-#set $unfocused_border #1D1F21
-#set $focused_border #CC6666
+set $unfocused_border #1D1F21
+set $focused_border #CC6666
 
-# class                 border  backgr. text    indicator child_border
-client.focused          #ffffff #ffffff #ffffff #ffffff   $focused_border
+# class                 border  backgr  text    indicator child_border
+client.focused          #333333 #333333 #333333 #333333   $focused_border
 client.focused_inactive #ffffff #ffffff #ffffff #ffffff   $focused_border
 client.unfocused        #ffffff #ffffff #ffffff #ffffff   $unfocused_border
 client.urgent           #ffffff #ffffff #ffffff #ffffff   $focused_border
@@ -179,7 +179,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
 bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
 
-gaps inner 30
-gaps outer 35
+gaps inner 10
+gaps outer 40
 
 exec --no-startup-id picom -b -c --config ~/.config/picom.conf
