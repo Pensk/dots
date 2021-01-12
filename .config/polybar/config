@@ -3,7 +3,7 @@
 ; If unspecified, the application will pick the first one it finds.
 ; $ polybar -m | cut -d ':' -f 1
 ; $ xrandr -q | grep " connected" | cut -d ' ' -f1
-monitor = "eDP-1"
+monitor = "DP-0"
 ; font-0 = "Hack:pixelsize=14;2.25"
 
 ; Use the specified monitor as a fallback if the main one is not found.
@@ -104,7 +104,7 @@ font-1 = FontAwesome5Free:style=Solid:size=14;2
 ;   modules-right = ipc clock
 modules-left = i3
 modules-center =
-modules-right = wireless-network sep memory sep cpu sep battery sep date
+modules-right = memory sep cpu sep volume sep date
 
 ; The separator will be inserted between the output of each module
 separator =
@@ -172,7 +172,7 @@ tray-scale = 1.0
 ; Currently 333399supported WM's:
 ;   bspwm
 ;   i3 (requires: `override-redirect = true`)
-; wm-restack =
+wm-restack = i3
 
 ; Set a DPI values used when rendering text
 ; This only affects scalable fonts
@@ -251,45 +251,45 @@ interval = 1.0
 date = %Y-%m-%d%
 
 ; Optional time format
-time = %H:%M
+time = %H:%M:%S
 
 ; if `date-alt` or `time-alt` is defined, clicking
 ; the module will toggle between formats
 date-alt = %A, %d %B %Y
-time-alt = %H:%M:%S
+time-alt = %I:%M:%S
 
 label = %date% %time%
 label-font = 0
 label-foreground = #ffffff
 
-[module/wireless-network]
-type = internal/network
-interface = wlp2s0
+; [module/wireless-network]
+; type = internal/network
+; interface = wlp2s0
 
-label-connected = %essid%
-format-connected = <ramp-signal>
-label-connected-foreground = #5ab414
+; label-connected = %essid%
+; format-connected = <ramp-signal>
+; label-connected-foreground = #5ab414
 
-format-disconnected = <label-disconnected>
-label-disconnected = Not connected
-label-disconnected-foreground = #BF616A
+; format-disconnected = <label-disconnected>
+; label-disconnected = Not connected
+; label-disconnected-foreground = #BF616A
 
-ramp-signal-foreground = #5ab414
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-5 = 
+; ramp-signal-foreground = #5ab414
+; ramp-signal-0 = 
+; ramp-signal-1 = 
+; ramp-signal-2 = 
+; ramp-signal-3 = 
+; ramp-signal-4 = 
+; ramp-signal-5 = 
 
-[module/spotify]
-type = custom/script
-interval = 1
-format-prefix = " "
-format = <label>
-label-foreground = #5ab414
-format-prefix-foreground = #5ab414
-exec = python ~/.config/spotify_status.py -f '{artist} - {song}'
+; [module/spotify]
+; type = custom/script
+; interval = 1
+; format-prefix = " "
+; format = <label>
+; label-foreground = #5ab414
+; format-prefix-foreground = #5ab414
+; exec = python ~/.config/spotify_status.py -f '{artist} - {song}'
 
 [module/cpu]
 type = internal/cpu
@@ -298,7 +298,7 @@ type = internal/cpu
 ; Default: 1
 interval = 0.5
 
-label =  %percentage%%
+label = %percentage%% cpu
 
 label-foreground = #0066cc
 label-padding-right = 1
@@ -329,67 +329,15 @@ format = <label>
 ;   %gb_swap_free%
 ;   %gb_swap_used%
 
-label =  %gb_used% | 0.%percentage_used%
+label = %gb_used% / %gb_total%
 
 label-foreground = #f92672
 
-[module/temperature]
-type = internal/temperature
-
-; Seconds to sleep between updates
-; Default: 1
-interval = 0.5
-
-; Thermal zone to use
-; To list all the zone types, run
-; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
-; Default: 0
-thermal-zone = 0
-
-; Full path of temperature sysfs path
-; Use `sensors` to find preferred temperature source, then run
-; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
-; to find path to desired file
-; Default reverts to thermal zone setting
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
-
-; Threshold temperature to display warning label (in degrees celsius)
-; Default: 80
-warn-temperature = 60
-
-format = <label>
-
-; Available tags:
-;   <label-warn> (default)
-;   <ramp>
-
-; Available tokens:
-;   %temperature% (deprecated)
-;   %temperature-c%   (default, temperature in °C)
-;   %temperature-f%   (temperature in °F)
-label =  %temperature-c%
-
-label-foreground = #fdc21f
-
-[module/battery]
-type = internal/battery
-format-charging = <label-charging> <animation-charging>
-format-discharging = <label-discharging> <animation-discharging>
-label-charging = 🔋 %percentage%%
-label-discharging = 🔋 %percentage%%
-
-label-full = 100%
-
-animation-charging-0 = [ ]
-animation-charging-1 = [+]
-
-
-animation-charging-framerate = 1000
-
-animation-discharging-0 = [ ]
-animation-discharging-1 = [-]
-
-animation-discharging-framerate = 1000
+[module/volume]
+type = internal/pulseaudio
+format-volume = <label-volume>
+label-volume = %percentage%% vol
+label-muted = muted
 
 [module/decor-glyph]
 type = custom/text
