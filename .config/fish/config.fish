@@ -5,7 +5,7 @@ alias emacs='emacs -nw'
 alias gs='git status'
 alias gf='git fetch'
 alias gd='git diff'
-alias gc='git commit'
+alias gc='git commit -Sm'
 alias gch='git checkout'
 
 alias pj='cd ~/proj; cd'
