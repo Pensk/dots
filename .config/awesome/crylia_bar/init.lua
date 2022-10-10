@@ -14,7 +14,7 @@ awful.screen.connect_for_each_screen(
   awful.tag(
     { "1", "2", "3", "4", "5", "6", "7", "8", "9" },
     s,
-    user_vars.layouts[1]
+    user_vars.layouts[s.index]
   )
 
   require("src.modules.powermenu")(s)

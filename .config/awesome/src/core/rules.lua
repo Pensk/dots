@@ -47,7 +47,19 @@ awful.rules.rules = {
       type = { "normal", "dialog", "modal", "utility" }
     },
     properties = { titlebars_enabled = true }
-  }
+  },
+  {
+    rule = { class = "discord" },
+    properties = { screen = 2 }
+  },
+  {
+    rule = { class = "Slack" },
+    properties = { screen = 2, tag = "2" }
+  },
+  {
+    rule = { class = "Firefox" },
+    properties = { screen = 3 }
+  },
 }
 
 awful.spawn.easy_async_with_shell(
