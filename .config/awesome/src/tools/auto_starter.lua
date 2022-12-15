@@ -4,7 +4,7 @@ return function()
       awful.spawn("picom --experimental-backends")
       awful.spawn("alacritty")
       awful.spawn("steam")
-      awful.spawn("Discord")
+      awful.spawn("discord")
       awful.spawn("firefox")
       awful.spawn("slack")
 end
