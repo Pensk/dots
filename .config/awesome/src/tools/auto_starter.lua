@@ -1,10 +1,11 @@
 local awful = require("awful")
 
 return function()
-      awful.spawn("picom --experimental-backends")
+      -- os.execute("sleep " .. 3)
+      awful.spawn("picom") --experimental-backends")
       awful.spawn("alacritty")
       awful.spawn("steam")
-      awful.spawn("Discord")
-      awful.spawn("firefox")
+      awful.spawn("discord")
+      awful.spawn("google-chrome-stable")
       awful.spawn("slack")
 end
