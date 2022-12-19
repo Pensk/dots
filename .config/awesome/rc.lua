@@ -778,4 +778,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 --awful.util.spawn("nm-applet")
 
 -- Autostart
-require("src.tools.auto_starter")()
+require("auto_starter")()
