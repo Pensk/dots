@@ -109,3 +109,5 @@ alias pj='cd ~/proj; cd'
 alias op='cd ~/proj/opn; cd'
 
 alias input-remapper="sudo input-remapper-control --command autoload"
+
+alias emacs="emacsclient -a -c 'emacs'"
