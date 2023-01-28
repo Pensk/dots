@@ -87,10 +87,12 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-
+export EDITOR="emacsclient -c"
+export VISUAL="emacsclient -c -a emacs"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.sock"
+eval $(ssh-agent)
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -110,4 +112,5 @@ alias op='cd ~/proj/opn; cd'
 
 alias input-remapper="sudo input-remapper-control --command autoload"
 
-alias emacs="emacsclient -a -c 'emacs'"
+alias emacs="emacsclient -c -a nvim"
+alias emacst="emacsclient -t"
