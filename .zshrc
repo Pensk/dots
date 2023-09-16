@@ -108,7 +108,7 @@ alias gc='git commit -Sm'
 alias gch='git checkout'
 
 alias pj='cd ~/proj; cd'
-alias op='cd ~/proj/opn; cd'
+alias sd='cd ~/proj/sd; cd'
 
 alias input-remapper="sudo input-remapper-control --command autoload"
 
