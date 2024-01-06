@@ -1,0 +1,101 @@
+[colors.bright]
+black = "#363636"
+blue = "#90CAF9"
+cyan = "#80DEEA"
+green = "#A5D6A7"
+magenta = "#CE93D8"
+red = "#ef9a9a"
+white = "#FFFFFF"
+yellow = "#FFF59D"
+
+[colors.cursor]
+cursor = "#00b8ff"
+
+[colors.normal]
+black = "#121212"
+blue = "#82B1FF"
+cyan = "#84FFFF"
+green = "#8BC34A"
+magenta = "#EA80FC"
+red = "#ff5252"
+white = "#FFFFFF"
+yellow = "#FFFF00"
+
+[colors.primary]
+background = "#000000"
+foreground = "#FFFFFF"
+
+[colors.search.focus_match]
+background = "#E040FB"
+foreground = "#000000"
+
+[colors.search.footer_bar]
+background = "#121212"
+foreground = "#B388FF"
+
+[colors.search.matches]
+background = "#EA80FC"
+foreground = "#000000"
+
+[colors.selection]
+background = "#121212"
+text = "#EA80FC"
+
+[cursor]
+blink_interval = 750
+style = "Beam"
+thickness = 0.2
+unfocused_hollow = false
+
+[font]
+draw_bold_text_with_bright_colors = false
+size = 8.0
+
+[font.bold]
+family = "Hack"
+style = "Bold"
+
+[font.bold_italic]
+family = "Inconsolata"
+style = "Bold Italic"
+
+[font.italic]
+family = "Inconsolata"
+style = "italic"
+
+[font.normal]
+family = "Hack"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[mouse.bindings]]
+action = "Paste"
+mouse = "Right"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[window]
+decorations = "full"
+dynamic_title = true
+opacity = 0.8
+startup_mode = "Windowed"
+title = "Alacritty"
+
+[window.dimensions]
+columns = 110
+lines = 30
