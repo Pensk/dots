@@ -4,6 +4,8 @@ export PATH=$HOME/go/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export GTK_IM_MODULE=xim
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -87,8 +89,8 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-export EDITOR="emacsclient -c"
-export VISUAL="emacsclient -c -a emacs"
+export EDITOR=nvim
+export VISUAL=nvim
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.sock"
@@ -112,5 +114,8 @@ alias sd='cd ~/proj/sd; cd'
 
 alias input-remapper="sudo input-remapper-control --command autoload"
 
-alias emacs="emacsclient -c -a nvim"
-alias emacst="emacsclient -t"
+export PATH=$HOME/.local/bin:$PATH
+
+if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+	exec startx
+fi

@@ -494,17 +494,27 @@ awful.rules.rules = {
    },
 
    -- Set Firefox to always map on the tag named "2" on screen 1.
-   -- { rule = { class = "Firefox" },
-   --   properties = { screen = 1, tag = "2" } },
+   { rule = { class = "Firefox" },
+     properties = { screen = 3} 
+   },
    { rule = { class = "discord" },
      properties = { screen = 2}
    },
    { rule = { class = "Slack" },
-     properties = { screen = 2, trag = "2" }
+     properties = { screen = 2, tag = "2" }
    },
    {
       rule = { class = "Google-chrome" },
       properties = { screen = 3 }
+   },
+   { rule = { class = "Code" },
+     properties = { tag = "3"} 
+   },
+   { rule = { name = "Jagex Launcher" },
+     properties = { tag = "2"} 
+   },
+   { rule = { name = "Friends List" },
+     properties = { screen = 2} 
    },
 }
 -- }}}
@@ -573,9 +583,10 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-awful.spawn("emacsclient -c -a nvim")
 awful.spawn("steam")
-awful.spawn("google-chrome-stable")
+awful.spawn("firefox")
 awful.spawn("alacritty")
 awful.spawn("discord")
 awful.spawn("slack")
+awful.spawn("code")
+awful.spawn("com.jagex.Launcher")
