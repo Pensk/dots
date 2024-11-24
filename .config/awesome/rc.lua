@@ -513,6 +513,9 @@ awful.rules.rules = {
    { rule = { name = "Jagex Launcher" },
      properties = { tag = "2"} 
    },
+   { rule = { name = "Bolt Launcher" },
+     properties = { tag = "2"} 
+   },
    { rule = { name = "Friends List" },
      properties = { screen = 2} 
    },
@@ -589,4 +592,4 @@ awful.spawn("alacritty")
 awful.spawn("discord")
 awful.spawn("slack")
 awful.spawn("code")
-awful.spawn("com.jagex.Launcher")
+awful.spawn("com.adamcake.Bolt")
