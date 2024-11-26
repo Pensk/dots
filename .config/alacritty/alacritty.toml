@@ -25,14 +25,6 @@ yellow = "#FFFF00"
 background = "#000000"
 foreground = "#FFFFFF"
 
-[colors.search.focus_match]
-background = "#E040FB"
-foreground = "#000000"
-
-[colors.search.footer_bar]
-background = "#121212"
-foreground = "#B388FF"
-
 [colors.search.matches]
 background = "#EA80FC"
 foreground = "#000000"
@@ -48,8 +40,7 @@ thickness = 0.2
 unfocused_hollow = false
 
 [font]
-draw_bold_text_with_bright_colors = false
-size = 8.0
+size = 10.0
 
 [font.bold]
 family = "Hack"
