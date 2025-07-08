@@ -115,7 +115,3 @@ alias sd='cd ~/proj/sd; cd'
 alias input-remapper="sudo input-remapper-control --command autoload"
 
 export PATH=$HOME/.local/bin:$PATH
-
-if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-	exec startx
-fi
